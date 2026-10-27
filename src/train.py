@@ -123,7 +123,9 @@ def train_and_evaluate_all_models():
     for model_name, classifier in models_config.items():
         logger.info(f"--- Training Candidate Model: {model_name} ---")
         pipeline = Pipeline(steps=[("preprocessor", preprocessor), ("classifier", classifier)])
-
+# Start an MLflow run to track one model experiment.
+# Log model parameters and evaluation metrics for comparison.
+# Save the trained model artifact so it can be reused later.
         with mlflow.start_run(run_name=model_name):
             pipeline.fit(X_train, y_train)
             metrics = evaluate_model(pipeline, X_test, y_test)

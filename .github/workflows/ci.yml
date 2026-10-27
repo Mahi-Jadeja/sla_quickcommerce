@@ -28,4 +28,6 @@ jobs:
         run: python -c "import httpx, fastapi; print('httpx:', httpx.__version__, 'fastapi:', fastapi.__version__)"
 
       - name: Run unit tests
-        run: pytest tests/ -v --tb=short
+        run: python -m pytest tests/ -v --tb=short
+        env:
+          PYTHONPATH: ${{ github.workspace }}

@@ -1,0 +1,37 @@
+version: '3.8'
+
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: mahi0409/quick-commerce-sla-api:latest
+    container_name: quick-commerce-sla-api
+    restart: always
+    ports:
+      - "8000:8000"
+    environment:
+      - AWS_REGION=ap-south-1
+      - S3_BUCKET_NAME=mlops-sla-mahipune01
+      - AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}
+      - AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile.frontend
+    image: mahi0409/quick-commerce-sla-frontend:latest
+    container_name: quick-commerce-sla-frontend
+    restart: always
+    ports:
+      - "8501:8501"
+    environment:
+      - API_URL=http://api:8000
+    depends_on:
+      api:
+        condition: service_healthy

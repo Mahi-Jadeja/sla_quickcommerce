@@ -1,0 +1,42 @@
+{
+    "best_model": "LightGBM",
+    "best_roc_auc": 0.9852027617046349,
+    "team_notes": "LightGBM selected as the best model based on ROC-AUC.",
+    "metrics_by_model": {
+        "Logistic_Regression": {
+            "accuracy": 0.8724640859743393,
+            "precision": 0.826214405360134,
+            "recall": 0.725101065784638,
+            "f1_score": 0.7723624975533373,
+            "roc_auc": 0.9317947116651093
+        },
+        "Random_Forest": {
+            "accuracy": 0.9350806009430859,
+            "precision": 0.9720620842572062,
+            "recall": 0.8055861815509004,
+            "f1_score": 0.8810289389067524,
+            "roc_auc": 0.9824226699840393
+        },
+        "XGBoost": {
+            "accuracy": 0.9355192455313083,
+            "precision": 0.931257581884351,
+            "recall": 0.8463800073502389,
+            "f1_score": 0.8867924528301887,
+            "roc_auc": 0.9839882432940558
+        },
+        "Tuned_XGBoost": {
+            "accuracy": 0.9372738238841978,
+            "precision": 0.9597774925117672,
+            "recall": 0.8243292907019478,
+            "f1_score": 0.8869118228548833,
+            "roc_auc": 0.9843514471113091
+        },
+        "LightGBM": {
+            "accuracy": 0.9384800965018094,
+            "precision": 0.9541631623212784,
+            "recall": 0.8338846012495406,
+            "f1_score": 0.889978427142577,
+            "roc_auc": 0.9852027617046349
+        }
+    }
+}

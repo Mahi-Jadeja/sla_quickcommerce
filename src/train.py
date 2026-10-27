@@ -64,8 +64,10 @@ def get_preprocessor():
             ("cat", OneHotEncoder(handle_unknown="ignore", sparse_output=False), categorical_features),
         ]
     )
-    return preprocessor
+    return preprocessor #Numeric columns are scaled so features use comparable ranges.
 
+#Categorical columns are encoded into a numerical representation that the model can process.
+#The ColumnTransformer applies the appropriate preprocessing to each column type. 
 
 def evaluate_model(model, X_test, y_test):
     """Calculates classification evaluation metrics."""

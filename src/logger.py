@@ -3,6 +3,8 @@ import sys
 from pathlib import Path
 from src.config import BASE_DIR
 
+"""Shared logging configuration for application modules."""
+
 # Create logs directory
 LOGS_DIR = BASE_DIR / "logs"
 LOGS_DIR.mkdir(exist_ok=True)

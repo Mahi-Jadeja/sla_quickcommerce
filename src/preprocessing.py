@@ -37,9 +37,21 @@ def haversine_distance(lat1, lon1, lat2, lon2):
     a = np.sin(dlat / 2.0) ** 2 + np.cos(lat1_rad) * np.cos(lat2_rad) * np.sin(dlon / 2.0) ** 2
     c = 2 * np.arcsin(np.sqrt(np.clip(a, 0, 1)))
     return r * c
+    """
+    Clean raw delivery data and prepare it for SLA breach prediction.
 
+    Handles the existing data-cleaning steps and prepares the
+    `will_breach_sla` target used by the prediction pipeline.
+    """
 
 def clean_raw_data(df: pd.DataFrame) -> pd.DataFrame:
+    """
+    Clean raw delivery data and prepare it for SLA breach prediction.
+
+    Handles the existing data-cleaning steps and prepares the
+    `will_breach_sla` target used by the prediction pipeline.
+    """
+    
     """
     Clean raw Quick-Commerce delivery data:
     - Strip whitespace from string columns

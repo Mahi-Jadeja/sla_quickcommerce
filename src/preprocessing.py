@@ -90,6 +90,7 @@ def clean_raw_data(df: pd.DataFrame) -> pd.DataFrame:
     df["multiple_deliveries"] = df["multiple_deliveries"].fillna(0)
 
     # Haversine Distance Calculation
+    """Calculate geographic distance between two coordinates."""
     df["distance_km"] = haversine_distance(
         df["Restaurant_latitude"],
         df["Restaurant_longitude"],
